@@ -64,17 +64,22 @@ embeds the native library.
 
 *Note*: For the moment the project depends on a local build of `sbt-java-module-info`
 v0.5.2, as that version is not published to Maven. Before compiling, you need to publish it locally:
-```
+```shell
 $ cd sbt-java-module-info && ./sbt publishLocal && cd -
 ```
 
 Create package:
-```
+```shell
  $ ./sbt compile package
 ```
 
-Insatll package locally into maven repository:
+Add runtime library to your project:
+```shell
+ $ jar uf target/zstd-jni-1.5.6-4.jar -C lib linux
 ```
+
+Insatll package locally into maven repository:
+```shell
  $ ./install-jar.sh
 ```
 
